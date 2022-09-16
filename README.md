@@ -12,3 +12,21 @@
 
 # How to run git commands
 1) in terminal, type => git add -A
+2) in terminal, type => git commit -m "first commit"
+3) in terminal, type => git push
+
+# How to test projects
+1) make sure you have run 'npm install - opspark' in terminal
+2) in terminal, type => os test
+
+# Best practices for git commands
+1) run git commands every five minutes to ensure your work is saved
+
+# First Website & Portfolio Page
+1) index.html will be the file that contains all the work for 'First Website'
+    a) In the lesson todos, ignore TODO 1
+    b) In the lesson todos, ignore any instructions referencing cloud9
+    c) You can stop at TODO10
+2) portfolio.html will be the file that contains all the work for 'Portfolio Page'
+    a)In the lesson todos, ignore TODO 1 (but copy boilerplate code)
+    b)You can stop at TODO 5
