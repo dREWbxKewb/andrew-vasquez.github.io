@@ -18,6 +18,15 @@
 # How to test projects
 1) make sure you have run 'npm install - opspark' in terminal
 2) in terminal, type => os test
+3) select bootcamp session
+4) select project to test
+
+# How to submit projects
+1) make sure you have run 'npm install -g opspark' in terminal
+2) make sure you have run os test and passed all test
+3) in terminal, type => os submit
+4) select bootcamp session
+5) select project you want to submit
 
 # Best practices for git commands
 1) run git commands every five minutes to ensure your work is saved
@@ -30,3 +39,5 @@
 2) portfolio.html will be the file that contains all the work for 'Portfolio Page'
     a)In the lesson todos, ignore TODO 1 (but copy boilerplate code)
     b)You can stop at TODO 5
+
+
