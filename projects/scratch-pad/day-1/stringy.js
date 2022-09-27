@@ -154,7 +154,9 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
+    //Return the args var into a join function
+    return args.join('');
+    
 
     // YOUR CODE ABOVE HERE //
 }
@@ -170,9 +172,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    if (stringOne.length > stringTwo.length){
+        console.log(stringOne);
+    }else {
+        console.log(stringTwo);
+    }
     // YOUR CODE ABOVE HERE //
 }
 
