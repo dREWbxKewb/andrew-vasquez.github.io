@@ -172,10 +172,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    //Determine if stringOne is longer than stringTwo
     if (stringOne.length > stringTwo.length){
-        console.log(stringOne);
-    }else {
-        console.log(stringTwo);
+        //return stringOne
+        return stringOne;
+    }else { //Else determine if stringOne is shorter than stringTwo
+        //return stringTwon
+        return stringTwo;
     }
     // YOUR CODE ABOVE HERE //
 }
@@ -189,7 +192,7 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    
 
 
     // YOUR CODE ABOVE HERE //
