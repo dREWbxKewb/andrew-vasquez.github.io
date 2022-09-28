@@ -13,7 +13,11 @@
 function printArrayValues(array) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Start with a for loop for array input
+  for (var i = 0; i < array.length; i++){
+    //Log the array input with the index increment
+    console.log(array[i]);
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -26,6 +30,11 @@ function printArrayValues(array) {
 function printArrayValuesInReverse(array) {
   // YOUR CODE BELOW HERE //
   
+  //Create a for loop that loops the array backwards
+  for (var i = array.length - 1; i >= 0; i--){
+    //Log the array input with its decrement
+    console.log(array[i]);
+  }
   
   
   
@@ -38,8 +47,15 @@ function printArrayValuesInReverse(array) {
 function getObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   
-  
-  
+  //Create a array for the object
+  var keys = [];
+  //Use a for in loop to access an object's keys
+  for (var key in object){
+    //Push the keys into the array
+    keys.push(key);
+  }
+  //Return array
+  return keys;
   
   // YOUR CODE ABOVE HERE //
 }
@@ -51,7 +67,11 @@ function getObjectKeys(object) {
 function printObjectKeys(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Create a for in loop
+  for (var key in object){
+    //Log the keys to console
+    console.log((key))
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -63,9 +83,17 @@ function printObjectKeys(object) {
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
   
+  //Create output array
+  var values = [];
+
+  //Iterate through object using for in loop
+  for (var key in object){
+    //Push the current key into keys
+    values.push(object[key]);
+  }
   
-  
-  
+  //Return output array
+  return values;
   // YOUR CODE ABOVE HERE //
 }
 
@@ -76,7 +104,11 @@ function getObjectValues(object) {
 function printObjectValues(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Create a for in loop
+  for (var key in object){
+    //Log the key values into console
+    console.log(object[key]);
+  }
   
   
   // YOUR CODE ABOVE HERE //
@@ -88,7 +120,7 @@ function printObjectValues(object) {
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //
   
   
   // YOUR CODE ABOVE HERE //
@@ -101,7 +133,9 @@ function getObjectLength(object) {
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   
-  
+  //Push oject values into an array
+
+  //Loop over th array backwards and print each value
   
   
   // YOUR CODE ABOVE HERE //
