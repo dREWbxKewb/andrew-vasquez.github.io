@@ -14,9 +14,15 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+
+    // Use Array.isArray() method in if statement
+    if (Array.isArray(value)){
+        //return true
+        return true;
+    } else { // Every other condition is false
+        //return false
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -32,8 +38,16 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    // determine if typeof value is 'object' AND value is not an array AND value is not null
+    // AND value is not an instance of the date object(google how to see if something is instance
+    // of date object)
+    // create an if/else chain condition to determine if the value is an Object, not an array, and not null
+    if (typeof value === 'object' && value !== null && !Array.isArray(value) && Object.prototype.toString.call(value) !== '[object Date]'){
+        //return true
+        return true;
+    } else { // Else return false
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -47,7 +61,17 @@ function isObject(value) {
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
     
-    
+    // Create an if condition that determines if the value is an Array or an Object, starting with Object
+    // This also means ruling out null and date
+    if (typeof value === 'object' && value !== null && Object.prototype.toString.call(value) !== '[object Date]'){
+        //return true
+        return true;
+    } else if (Array.isArray(value)){ // Else if the value is an array
+        //return true
+        return true;
+    } else { // Everything else resolves to false
+        return false;
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -74,7 +98,21 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    // Create an if condition to determine a array string
+    if (Array.isArray(value)){
+        //Return array
+        return 'array';
+    } else if (value === null){ // Else if the type of value is null
+        // Return null string
+        return 'null';
+    } else if (Object.prototype.toString.call(value) === '[object Date]'){ // Else if the type of value is date
+        // Return date string
+        return 'date';
+    } else { // Else return the type of value
+        // Return typeof value
+        return typeof value;
+
+    }
     
     
     
