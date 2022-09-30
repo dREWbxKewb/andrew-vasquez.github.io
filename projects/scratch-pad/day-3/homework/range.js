@@ -34,9 +34,11 @@ function range(start, end) {
     if (start > end){
         // Create a for loop that loops start through end and decrements if greater than
         for (var i = start; i >= end; i--){
+            //Push i into result
             result.push(i);
         }
     }
+    //Return result
     return result
     // YOUR CODE GOES ABOVE HERE //
 }
