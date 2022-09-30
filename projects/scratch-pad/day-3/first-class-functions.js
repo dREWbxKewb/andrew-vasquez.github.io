@@ -14,7 +14,7 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    // return a function that test whether a value is greate than the base parameter
+    // return a function that test whether a value is greater than the base parameter
     return function(value){
         return value > base;
     }
@@ -31,8 +31,11 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+    // return a function with parameter value
+    return function(value){
+        // return test that asks whether value is less than base
+        return value < base;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -46,7 +49,13 @@ function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
     
     return function(string){ //'Alex'
-        // return true if the string 'starts with' the startsWith character
+        // Create a if condition that ask if string index 0 starts with startsWith character
+        if (string[0].toLowerCase() === startsWith.toLowerCase()){
+            // return true if the string 'starts with' the startsWith character
+           return true ;
+        } else {
+            return false;
+        }
     }
     
     
@@ -61,7 +70,16 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
+    //Create a return function that test string
+    return function(string){
+        //Create an if condition that ask if string.length is strictly equal to endsWith
+        if (string[string.length - 1].toLowerCase() === endsWith.toLowerCase()){
+            //return true
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -76,10 +94,17 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+
+    //Create a var that holds a new array using array literal
+    var collection = [];
+    //Create a for loop to string array
+    for (var i = 0; i < strings.length; i++){
+        //Use the push method to push the modify function with the strings array index
+        collection.push(modify(strings[i]));
+    }
+    //return the new array
+    return collection;
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -94,9 +119,19 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    //Create a var to capture the test function output
+    var newTest;
+    //Create a for loop to loop the strings array
+    for (var i = 0; i < strings.length; i++){
+        //Pass each element in the array to the test function
+        newTest = test(strings[i]);
+        //Create a condition to check if the output of newTest is false
+        if (newTest === false){
+            return newTest;
+        }
+    }
+    //If return newTest does not post, return true
+    return newTest;
     
     // YOUR CODE ABOVE HERE //
 }
