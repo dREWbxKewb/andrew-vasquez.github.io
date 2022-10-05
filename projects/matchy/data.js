@@ -111,14 +111,18 @@ animals.push(turtle);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//We are gonna use an object to make a list of friends. The reason behind it is because an object can store key values that can be called upon to give us info such as names, which is something that we can use to find a persons friend
-//Create a var called friends and assign it to an object literal
-var friends = {
-  //Create a function called getRandom that takes our animals array as the parameter
-  function getRandom(animals){
-    
-  }
+//We are gonna use an array. An array stores various data types, including strings. The strings we want to store will be names from the animal object
+//Create a var called friends and assign it to an array literal
+var friends = [];
+//Create a function called getRandom that takes the animals array as its parameter
+function getRandom(animals){
+  //Return a random animals index using math.random 
+  return Math.floor(Math.random() * animals.length);
 }
+//Get a random index and add its name value to the friends array
+friends.push(getRandom(animals));
+
+
 
 
 /**
