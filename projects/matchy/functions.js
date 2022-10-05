@@ -66,11 +66,20 @@ function remove(animals, name){
 function add(animals, animal){
     //Create a loop that loops through animals array
     for (var i = 0; i < animals.length; i++){
-        //Create a conditional that checks if the animal object property name is greater than 0 and if is not equal to any index in animals
-        if(animal.name > 0 && animal.species > 0 && animals[i].name !== animal.name && animals[i].species !== animal.species){
-            animals.push(animal);
+        //Create a conditional that checks if the animal object name property length is greater than 0 and the animal object species property length is greater than 0
+        if(animal.name.length > 0 && animal.species.length > 0){
+            //Create a conditional that checks whether the array index object name key value of animals is equal to the animal object name key value
+            if (animals[i].name === animal.name){
+                //Stop the check if true
+                return;
+            }
+        } else { // Else if all is false
+            //Stop the check
+            return;
         }
     }
+    //Push the animal object into the animal array
+    animals.push(animal);
 }
 
 

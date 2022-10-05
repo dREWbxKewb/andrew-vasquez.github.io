@@ -119,10 +119,12 @@ function getRandom(animals){
   //Return a random animals index using math.random 
   return Math.floor(Math.random() * animals.length - 1);
 }
+//Create a date bin for the getRandom function
+var randomI = getRandom(animals);
 //Get a random index and add its name value to the friends array
-friends.push(animals[getRandom(animals)].name);
+friends.push(animals[randomI].name);
 //Use bracket notation to add the friends key with values to the animals array
-animals[0]['friends'] = friends;
+animals[randomI]['friends'] = friends;
 
 
 
