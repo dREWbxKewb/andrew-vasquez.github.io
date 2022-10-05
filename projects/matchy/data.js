@@ -117,11 +117,12 @@ var friends = [];
 //Create a function called getRandom that takes the animals array as its parameter
 function getRandom(animals){
   //Return a random animals index using math.random 
-  return Math.floor(Math.random() * animals.length);
+  return Math.floor(Math.random() * animals.length - 1);
 }
 //Get a random index and add its name value to the friends array
-friends.push(getRandom(animals));
-
+friends.push(animals[getRandom(animals)].name);
+//Use bracket notation to add the friends key with values to the animals array
+animals[0]['friends'] = friends;
 
 
 
