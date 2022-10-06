@@ -16,7 +16,7 @@
 3) in terminal, type => git push
 
 # How to test projects
-1) make sure you have run 'npm install - opspark' in terminal
+1) make sure you have run 'npm install -g opspark' in terminal
 2) in terminal, type => os test
 3) select bootcamp session
 4) select project to test
