@@ -3,7 +3,15 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    //Create a var for the key values
+    var keyArray = [];
+    //Create a for in loop that pulls the keys from the object
+    for (var key in object){
+        //Push key values into bin
+        keyArray.push(object[key]);
+    }
+    //Return array var
+    return keyArray;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +19,17 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    //Create a var that takes on an array
+    var kString = [];
+    //Create a for in loop that accesses the keys
+    for (var key in object){
+        //Push keys into the var you created
+        kString.push(key);
+    }
+    //Make the var equal the array joined
+    kString = kString.join(' ');
+    //Return var
+    return kString;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,15 +37,37 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    //Create a var that takes on an array
+    var vString = [];
+    //Use a for in loop to access the key values of the object
+    for (var key in object){
+        //Push the key values into the var vString
+        vString.push(object[key]);
+    }
+    //Create a bin for the string key values that takes on an array
+    var vStrings = [];
+    //Create a for loop that loops through the var vString bin
+    for (var i = 0; i < vString.length; i++){
+        //Create an if conditional that checks if any of the indexs are equal to a string
+        if (vString[i] === ""){
+            vStrings.push(vString[i]);
+        }
+    }
+    return vStrings.join(' ');
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    //Create a conditional that checks if something is an array or not
+    if (Array.isArray(collection)){
+        //Return array
+        return "array";
+    } else { //If something is not an array
+        //Return object
+        return "object";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +75,15 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    //Create a bin for the split of the string
+    var sArray = string.split("");
+    //Create a bin for the uppercase string of first index in sArray
+    var capChar = sArray[0].toUpperCase();
+    //Use the splice method to remove the old first letter and add the new first letter
+    sArray.splice(0, 1, capChar);
+    //Use the join method to return sArray together
+    return sArray.join('');
+
 }
 
 //////////////////////////////////////////////////////////////////////
