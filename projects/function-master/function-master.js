@@ -49,7 +49,7 @@ function valuesToString(object) {
     //Create a for loop that loops through the var vString bin
     for (var i = 0; i < vString.length; i++){
         //Create an if conditional that checks if any of the indexs are equal to a string
-        if (vString[i] === ""){
+        if (typeof vString[i] === "string"){
             vStrings.push(vString[i]);
         }
     }
@@ -91,7 +91,17 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    //Create a var bin for the split string
+    var wArray = string.split(" ");
+    //Create another var bin to store the wArray strings but with the first characters upper cased.
+    var upArray = [];
+    //Create a for loop that will look at all the indexes in wArray
+    for (var i = 0; i < wArray.length; i++){
+        //Push the concated functions capitalizing the wArray current index first character with the rest of the indexes characters
+        upArray.push(wArray[i][0].toUpperCase() + wArray[i].slice(1));
+    }
+    //Return wArray joined
+    return upArray.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -99,7 +109,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    //Create a if condition that checks if the object has a name property
+    if(object.name){
+        //Return message 'Welcome 'insert name here'!'
+        return 'Welcome ' + (object['name'][0].toUpperCase + object['name'].slice(1)) + "!";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
