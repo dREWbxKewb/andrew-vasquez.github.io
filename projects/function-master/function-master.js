@@ -163,7 +163,20 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //Object must be checked if it has a noises key value equal to an array of strings
+    //However, we also have to take into account if it doesn't or does not exist or doesn't have any strings in the array
+    //Create a variable for the array in noise key
+    var objArray;
+    //Use a conditional that checks if the object have a noises key, if it has an array, and if the array is not empty
+    if("noises" in object && Array.isArray(object.noises) && object.noises.length !== 0){
+        //make the array equal the variable we created
+        objArray = object.noises
+    } else { //We need this if none of the above is true
+        //Return a message
+        return 'there are no noises';
+    }
+    //Return the variable joined by spaces
+    return objArray.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -171,7 +184,16 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    //Needs to take the word and compare it to the string of strings and see if the word is in the string
+    //Needs to return true if yes and false if no
+    //Create a if condition using the includes method to check if the word is in the string
+    if (string.includes(word)){
+        //Return true
+        return true;
+    } else { //If the above isn't true
+        //Return false
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -179,15 +201,15 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-    //Create a for in loop to access the objects keys
-    for (var key in object){
-        //We will push the name string into the friends array if it exist
-        if(object.key === object.friends){
-            //Return a push command into the friends key in object
-            return object.push(object.key);
-        }
+    //Needs to push the name into the object's friends array
+    //Must check if the object has a friends key and if that keyvalue is an array
+    //Create a conditional that checks if object has friends key and if its an array
+    if ("friends" in object && Array.isArray(object.friends)){
+        //push the name into the friends array
+        object.friends.push(name);
     }
-
+    //Return the object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -195,7 +217,24 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    //Must first check if friends key exist and whether its an array or not
+    //Then must check how many values are in that array
+    //Then must check if the name matches any of the indexed values in the array are a match
+    //Finally must print true if so
+    //Exception: if none of that is correct must print false
+    //Create a if conditional that checks if friends is in object and if it's an array
+    if ("friends" in object && Array.isArray(object.friends)){
+        //Use a for loop to be able to access the array
+        for (var i = 0; i < object.friends.length; i++){
+            //Use this loop to compare if name is equal to any of them
+            if(object.friends[i] === name){
+                //Return true
+                return true;
+            }
+        }
+    }
+    //return false
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -203,7 +242,29 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    //Must take the array and check the indexes
+    //Then we must check these indexes keys to find the name keyvalue and compare it to name
+    //If name matches the index, then we need to scan if the index has a friends key
+    //Then we need to check if the friends key matches the indexes name keyvalues
+    //If not we must log the keyvalues into an array and return them
+    //Create an array variable
+    var nonFriendsArray = [];
+    //Loop through the array to get indexes that we can access
+    for (var i = 0; i < array.length; i++){
+        //Now check if indexes have names and friends arrays
+        if ("name" in array[i] && "friends" in array[i] && Array.isArray(array[i].friends)){
+            //Create a new loop that loops through the friends array
+            for (var x = 0; x < array[i].friends.length; x++){
+                //Create a conditional tha checks if index of friends keyValue is equal to the index name keyValue
+                if (array[i].name !== array[i].friends[i]){
+                    //Return nothing
+                    nonFriendsArray.push(array[i].name);
+                }
+            }
+        }
+    }
+    //Return the array variable that we created
+    return nonFriendsArray;
 }
 
 //////////////////////////////////////////////////////////////////////
