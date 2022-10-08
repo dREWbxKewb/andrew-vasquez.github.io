@@ -109,11 +109,25 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    //Create a if condition that checks if the object has a name property
-    if(object.name){
-        //Return message 'Welcome 'insert name here'!'
-        return 'Welcome ' + (object['name'][0].toUpperCase + object['name'].slice(1)) + "!";
+    //Object should have a name property, and if not we need to find out if it does
+    //Must take into account case sensitivity
+    //Create a var for the letter in the key value we are gonna upperCase
+    var upperChar;
+    //Create a var that will take on the whole string value with the upperChar var
+    var newObjValue;
+    //Create a if conditional to check if the object has a name property
+    if ("name" in object){
+        //capitalize the first letter in the name property and assign it to upperChar
+        upperChar = object.name[0].toUpperCase();
+        //Assign object.name to the concated upperChar var and the sliced portion of the value at the 1 index
+        object.name = upperChar + object.name.slice(1);
+        //Assign newObjValue to object.name
+        newObjValue = object.name;
     }
+    //Return the message
+    return "Welcome " + newObjValue + "!";
+    
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -121,7 +135,27 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    //Object must be checked if it has name and species properties
+    //Must take in case sensitivity
+    //Create a couple of variable to put things in
+    var upperNameChar; //For the first letter in name capitalized
+    var upperNameSpec; //For the first letter in species capitalized
+    var newObjName; //For the concated upperNameChar and the rest of the string at object.name
+    var newObjSpec; //For the concated upperNameSpec and the rest of the string at object.name
+    //Now that we have all the variables, we can now use a conditional that checks if both the name key and the species key are in the object
+    if ("name" in object && "species" in object){
+        //Now we can use some of these variables. Use the .toUpperCase method to capitalize both the name and species key values first character
+        upperNameChar = object.name[0].toUpperCase();
+        upperNameSpec = object.species[0].toUpperCase();
+        //Now make object.keyvalue equal concat the first 2 variables with their respective key values
+        object.name = upperNameChar + object.name.slice(1);
+        object.species = upperNameSpec + object.species.slice(1);
+        //With that done, make other 2 variables equal object.keyValue we just assigned
+        newObjName = object.name;
+        newObjSpec = object.species;
+    }
+    //Return the message to the console
+    return newObjName + " is a " + newObjSpec;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -145,6 +179,14 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
+    //Create a for in loop to access the objects keys
+    for (var key in object){
+        //We will push the name string into the friends array if it exist
+        if(object.key === object.friends){
+            //Return a push command into the friends key in object
+            return object.push(object.key);
+        }
+    }
 
 }
 
