@@ -251,17 +251,21 @@ function nonFriends(name, array) {
     var nonFriendsArray = [];
     //Loop through the array to get indexes that we can access
     for (var i = 0; i < array.length; i++){
-        //Now check if indexes have names and friends arrays
-        if ("name" in array[i] && "friends" in array[i] && Array.isArray(array[i].friends)){
+        //Create a variable that holds a false value
+        var isTrue = false;
             //Create a new loop that loops through the friends array
             for (var x = 0; x < array[i].friends.length; x++){
-                //Create a conditional tha checks if index of friends keyValue is equal to the index name keyValue
-                if (array[i].name !== array[i].friends[i]){
-                    //Return nothing
-                    nonFriendsArray.push(array[i].name);
+                //Create a conditional that checks if name parameter is not equal to the keyvalue of name at index, and is equal to the index of friend keyvalue
+                if (name !== array[i].name && name === array[i].friends[x]){
+                    //Reassign boolean variable in first for loop
+                    isTrue = true;
                 }
             }
-        }
+            //Create a conditional that checks if the name parameter is not equal to the keyvalue of name at index and var isTrue is false
+            if (name !== array[i].name && isTrue === false){
+                //Push the name keyvalue into the bin var
+                nonFriendsArray.push(array[i].name);
+            }
     }
     //Return the array variable that we created
     return nonFriendsArray;
@@ -272,7 +276,25 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    //Must take an object, key, and value
+    //Must be able to change the key and value
+    //If the key and value doesn't exist, create a new key with the value
+    //Make the object become an array
+    var entries = Object.entries(object);
+    //Use a for loop to look through the index of entries
+    for (var i = 0; i < entries.length; i++){
+        //Create a conditional that checks if the zero index of each index is equal to the key parameter
+        if (entries[i][0] === key){
+            //Make the 1 index in the the index of object equal the value
+            entries[i][1] = value;
+        } else { //If not true
+            //Push new array into entries array
+            entries.push([key, value]);
+        }
+    }
+    //Make the entries array variable into an object
+    var newObject = Object.fromEntries(entries);
+    return newObject;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -280,7 +302,20 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    //Must take and object and an array of strings
+    //Then must look at the properties and values and compare them to the array strings
+    //Must return the object without the array string values
+    //Convert the object to an array
+    var arrayObj = Object.entries(object);
+    //Loop through the array to get the indexes
+    for (var i = 0; i < arrayObj.length; i++){
+        //Create a conditional that looks at the first index of the index in the array and compares it to the the first index of the array parameter
+        if (arrayObj[i][0] === array[0]){
+            arrayObj.splice(i, 1);
+        }
+    }
+    var newObjs = Object.fromEntries(arrayObj);
+    return newObjs;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -288,7 +323,20 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //Must take an array and return an array of non duplicate values
+    //Create a variable that we can set an array to
+    //The set 
+    var singleArray = [];
+    //Create a for loop to look at the index of array
+    for (var i = 0; i < array.length; i++){
+        //Using the index, create a conditional that checks if singleArray has a value in it
+        if (!singleArray.includes(array[i])){
+            //Push the array index into singleArray
+            singleArray.push(array[i]);
+        }
+    }
+    //Return singleArray
+    return singleArray;
 }
 
 //////////////////////////////////////////////////////////////////////
