@@ -305,17 +305,18 @@ function removeProperties(object, array) {
     //Must take and object and an array of strings
     //Then must look at the properties and values and compare them to the array strings
     //Must return the object without the array string values
-    //Convert the object to an array
-    var arrayObj = Object.entries(object);
-    //Loop through the array to get the indexes
-    for (var i = 0; i < arrayObj.length; i++){
-        //Create a conditional that looks at the first index of the index in the array and compares it to the the first index of the array parameter
-        if (arrayObj[i][0] === array[0]){
-            arrayObj.splice(i, 1);
+    //Create a for loop to check indexes of array
+    for (var i = 0; i < array.length; i++)
+    //Create a for in loop that checks keys in object
+    for (var key in object){
+        //Create a conditional that checks if the key is in the array
+        if (key === array[i]){
+            //Delete the key from the object
+            delete object[key];
         }
     }
-    var newObjs = Object.fromEntries(arrayObj);
-    return newObjs;
+    //Return object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
