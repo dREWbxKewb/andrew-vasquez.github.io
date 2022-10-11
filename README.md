@@ -40,4 +40,12 @@
     a)In the lesson todos, ignore TODO 1 (but copy boilerplate code)
     b)You can stop at TODO 5
 
+# To Access myLodown
+1) Click on three lines in top left corner
+2) Click file > open file
+3) Delete everything in dialogue box except -> /workspace/
+4) Click myLodown > click index.js
 
+# How to push code to myLodown
+1) Make sure your terminal reads /workspace/my-lodown
+2) run git commmands
