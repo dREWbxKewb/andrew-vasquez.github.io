@@ -177,7 +177,11 @@ _.indexOf = function(array, value){ //Function takes in array and value as param
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(array, value){ //Function takes in array and value
+    //Return ternary operator that uses the includes method as the condition
+    return array.includes(value) ? true: false;
+    
+}
 
 /** _.each
 * Arguments:
@@ -222,6 +226,22 @@ _.each = function(collection, func){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array){
+    //Create an array variable that puts non duplicates
+    var newArray = [];
+    //Iterate through the array
+    for (var i = 0; i < array.length; i++){
+        //Create a variable that takes in the indexOf function
+        var index = _.indexOf(array, array[i])
+        //Create a conditional that checks if the index variable is equal to the index
+        if (index === i){
+            //Push the array index into the newArray array
+            newArray.push(array[i]);
+        }
+    }
+    //Return the newArray variable
+    return newArray;
+}
 
 /** _.filter
 * Arguments:
