@@ -160,7 +160,6 @@ _.indexOf = function(array, value){ //Function takes in array and value as param
     }
     //Return -1 by default
     return -1;
-
 }
 
 /** _.contains
@@ -338,8 +337,6 @@ _.partition = function(array, func){ //Function that takes in array and function
     newArray.push(trueA);
     newArray.push(falseA);
     return newArray;
-    
-    
 }
 
 /** _.map
@@ -600,6 +597,7 @@ _.reduce = function(array, func, seed){ //Function that takes in array, function
 _.extend = function(object1, object2, ...object){//Function takes in an object, another object, and should be able to take in as many objects as possible
     //Assign object 1 to object2 and the rest param
     Object.assign(object1, object2, ...object);
+    //Return the new object1
     return object1;
 }
 //////////////////////////////////////////////////////////////////////
