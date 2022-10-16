@@ -46,38 +46,131 @@ var oldestCustomer = function(array){
     let oldest = 0
     //Implement _.reduce() to return the name of the oldest person
     return _.reduce(array, function(pre, curr){
-      if (curr.age > oldest){
-        oldest = curr.age;
-        pre = curr.name;
-      }
-      return pre;
+        //Determine if the current age is greater than the oldest value
+        if (curr.age > oldest){
+            //Make oldest variable equal the current age
+            oldest = curr.age;
+            //Make the seed equal the current name
+            pre = curr.name;
+        }
+        //Return the seed
+        return pre;
     }, '');
 }
 
 var youngestCustomer = function(array){
-    //Create a var to hold max age
-    let youngest = 0
+    //Create a var to hold youngest age
+    let youngest = 100000
     //Implement _.reduce() to return the name of the oldest person
-    return _.reduce(array, function(pre, curr){
-      if (curr.age < youngest){
-        oldest = curr.age;
-        pre = curr.name;
-      }
-      return pre;
+    return _.reduce(array, function(name, youngObj){
+        //Determine if the youngest value is equal to the youngObj age
+        if (youngObj.age < youngest){
+            //Make the youngest value equal the age
+            youngest = youngObj.age;
+            //Make the seed equal the name
+            name = youngObj.name;
+        }
+        //Return name
+        return name;
     }, '');
 }
 
-var averageBalance;
+var averageBalance = function(array){
+    //Implement the reduce function
+    return _.reduce(array, function(aBalance, obj, i, array){
+        //Increment the seed by the indexes balance key value with the $ sign and , removed and divid by the array's length
+        aBalance += obj.balance.replace(/[$,]/g, '') / array.length;
+        //Return the seed
+        return aBalance;
+    }, 0);
+}
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    //Implement the reduce function
+    return _.reduce(array, function(result, first, i, array){
+        //Determine if the letter param is equal to the array indexes name value's zero index is equal
+        if (letter.toUpperCase() === first.name[0].toUpperCase()){
+            //Increment the result if so
+            result++;
+        }
+        //Return the incremented result
+        return result;
+    }, 0);
+}
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    //Implement the reduce function
+    return _.reduce(array, function(result, obj, i,){
+        //Determine if the obj name is equal to the customer para
+        if (obj.name === customer){
+            //If so, loop through the obj friends array
+            for (var i = 0; i < obj.friends.length; i++){
+                //Determine if the letter para is equal to the obj friends name value's first char
+                if (letter.toUpperCase() === obj.friends[i].name[0].toUpperCase()){
+                    //Increment the result
+                    result++;
+                }
+            }
+        }
+        //Return the result
+        return result;
+    }, 0)
+}
 
-var friendsCount;
+var friendsCount = function(array, name){
+    // Implement the reduce function
+    return array.reduce(function(result, obj){
+        //Iterate throught the friends array in obj
+        for (var i = 0; i < obj.friends.length; i++){
+            //Determine if the name para is equal to the name at the index of friends in obj
+            if (name === obj.friends[i].name){
+                //Push the obj's name into the result
+                result.push(obj.name);
+            }
+        }
+        //Return the result
+        return result;
+    }, [])
+}
 
-var topThreeTags;
+var topThreeTags = function(array){
+    //Implement the map function
+    let tagMap = array.map(function(customer){
+        if("tags" in customer){
+            return customer.tag;
+        }
+    });
+    //Implement
+}
 
-var genderCount;
+var genderCount = function(array){
+    //Implement the reduce method
+    return _.reduce(array, function(object, obj, i, array){
+        //Implement the filter method
+        let mValue = array.filter(function(customer){
+            //Return the male objects into an array
+            return customer.gender === "male";
+        });
+        //Create a male key in the seed object with the value of the number of objs in mValue
+        object.male = mValue.length;
+        //Implement the filter method
+        let fValue = array.filter(function(customer){
+            //Return the female objects into an array
+            return customer.gender === "female";
+        });
+        //Create a female key in the seed that is equal to the length of the fValue array
+        object.female = fValue.length;
+        //Implement the filter method
+        let nbValue = array.filter(function(customer){
+            //Return the non-binary objects into an array
+            return customer.gender === "non-binary";
+        });
+        //Create a non-binary key that equals the length of the nbValue array
+        object["non-binary"] = nbValue.length;
+        //Return the seed object
+        return object;
+    }, {})
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
