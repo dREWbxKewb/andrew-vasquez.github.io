@@ -4,6 +4,7 @@
 
 var customers = require('./data/customers.json');
 var _ = require('underbar');
+const { map } = require('lodash');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -134,18 +135,27 @@ var friendsCount = function(array, name){
 }
 
 var topThreeTags = function(array){
-    //Implement the map function
-    let tagMap = array.map(function(customer){
-        if("tags" in customer){
-            return customer.tag;
-        }
+    //Implement the each function
+    let map = {};
+    _.each(array, function(obj){
+        _.each(obj.tags, function(tag){
+            map[tag] = (map[tag] || 0) + 1;
+        });
     });
-    //Implement
+    let topArr = _.map(Object.keys(map), obj => [obj, map[obj]]).sort((a, b) =>  a[1] - b[1])
+    
+    let output = topArr.slice(-3);
+    for (var i = 0; i < output.length; i++){
+        output[i].pop();
+    }
+    let newArr = [];
+    newArr = newArr.concat(output[0], output[1], output[2]);
+    return newArr;
 }
 
 var genderCount = function(array){
     //Implement the reduce method
-    return _.reduce(array, function(object, obj, i, array){
+    return array.reduce(function(object, obj){
         //Implement the filter method
         let mValue = array.filter(function(customer){
             //Return the male objects into an array
