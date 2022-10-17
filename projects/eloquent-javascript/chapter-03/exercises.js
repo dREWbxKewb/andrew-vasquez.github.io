@@ -2,15 +2,30 @@
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function min() {
-
+function min(x, y) { //Add 2 different parameters that can be numbers
+  //Determine if x is less than y
+  if (x < y){
+    //Return x
+    return x;
+  } else { //Else if x is greater than y
+    //Return y
+    return y;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
+function isEven(num) { //Add a parameter that can be a number
+  //Determine if the num parameter with a remainder of 2 will be equal to zero
+  if (num % 2 === 0){
+    //Return true
+    return true;
+  } else { //Else if num is odd
+    //Return false;
+    return false;
+  }
 
 }
 
@@ -18,16 +33,38 @@ function isEven() {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
-
+function countChars(string, char) { //Add parameters string and char for the string and the character
+  //Create a var that can count
+  let count = 0;
+  //Iterate through the string
+  for (let i = 0; i < string.length; i++){
+    //Determine if any of the characters in string are equal to char
+    if (char === string[i]){
+      //Increment the count var
+      count += 1;
+    }
+  }
+  //Return the count
+  return count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(string) { //Add parameter that can be a string
+  //Create a var that can count
+  let count = 0;
+  //Iterate through the string
+  for (let i = 0; i < string.length; i++){
+    //Determine if any of the characters in string are equal to B
+    if ("B" === string[i]){
+      //Increment the count var
+      count += 1;
+    }
+  }
+  //Return the count
+  return count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

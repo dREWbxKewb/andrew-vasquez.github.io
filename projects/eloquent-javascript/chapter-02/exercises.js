@@ -3,8 +3,10 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles(num) {
+function triangles(num) { //Add a parameter that is a number
+  //Use a loop to count and add a hash symbol
   for (var i = "#"; i.length <= num; i += "#"){
+    //Log the variable
     console.log(i);
   }
 }
@@ -36,9 +38,27 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(num) { //Add a num parameter
   //Create a variable that is an empty string
   var chessBoard = "";
+  //Count using a for loop and the num parameter
+  for (var i = 0; i < num; i++){
+    //Create another count with num parameter
+    for (var e = 0; e < num; e++){
+      //Create a conditional that checks if the i plus e with a remainder of 2 would equal zero
+      if ((i + e) % 2 === 0){
+        //If so we will log for evens and add a empty space
+        chessBoard += " ";
+      } else { //If the check does not equal 0
+        //Add a hash mark in the even numbers
+        chessBoard += "#";
+      }
+    }
+    //End the line using the new line syntax
+    chessBoard += "\n";
+  }
+  //Log to the console the chessBoard
+  console.log(chessBoard);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
