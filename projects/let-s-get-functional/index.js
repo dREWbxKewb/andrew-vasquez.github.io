@@ -135,21 +135,32 @@ var friendsCount = function(array, name){
 }
 
 var topThreeTags = function(array){
-    //Implement the each function
+    //Create an object literal to add tags to
     let map = {};
+    //Implement through the each function
     _.each(array, function(obj){
+        //Inside the each function, implement the each function taking in tag as a parameter in the function
         _.each(obj.tags, function(tag){
+            //Make the key value of tag equal the tag or 0, and counting by 1 for every time it was found
             map[tag] = (map[tag] || 0) + 1;
         });
     });
-    let topArr = _.map(Object.keys(map), obj => [obj, map[obj]]).sort((a, b) =>  a[1] - b[1])
-    
+    //Create an array variable that holds the implementation of the map function
+    //The map function will take in the keys of the map object we created earlier that has the tags counted
+    //map will also take in an object in the function, and use the sort method to sort the tags by how many times it was counted, or the key values
+    let topArr = _.map(Object.keys(map), obj => [obj, map[obj]]).sort((a, b) =>  a[1] - b[1]);
+    //Creat a variable that slices the first 3 sorted arrays in the array created in the map function
     let output = topArr.slice(-3);
+    //Iterate through the index of this new array
     for (var i = 0; i < output.length; i++){
+        //Use the pop method for the indexes to remove the last index in each array in the array
         output[i].pop();
     }
+    //Create a new array
     let newArr = [];
+    //Make the new array equal the concated output index arrays to make them a new array
     newArr = newArr.concat(output[0], output[1], output[2]);
+    //Return the new array with the top 3 tags
     return newArr;
 }
 
