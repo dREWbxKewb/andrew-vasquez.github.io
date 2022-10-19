@@ -78,23 +78,28 @@ var sumBelow = function(n) {
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr=[]) { //Add a default to push intergers in
   //Determine if x is less than y minus 1
-  if (x < y - 1){
-    //Increment x by 1
-    x += 1;
-    //Push x into default
-    arr.push(x)
-    //Return the function
-    return range(x, y, arr);
-  } else if (x > y + 1){ //Else if x is greater than y + 1
+  if (x === y - 1 || x === y + 1){
+    //Return the array
+    return arr;
+  } else if (x === y){ //Else if x is equal to y
+    //Return array
+    return arr;
+  }
+  //Determine if x is less than y
+  if (x < y){ 
+      //Increment x by 1
+      x += 1;
+      //Push x into default
+      arr.push(x)
+  } else if (x > y){ //Else if x is greater than y
     //Decrement x by 1
     x -= 1;
     //Push x into array
     arr.push(x)
     //Return the function
-    return range(x, y, arr);
   }
   //Return the default
-  return arr;
+  return range(x, y, arr);
 };
 
 // 7. Compute the exponent of a number.
