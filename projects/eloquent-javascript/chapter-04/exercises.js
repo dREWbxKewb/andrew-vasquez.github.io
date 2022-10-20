@@ -34,16 +34,36 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {//Function takes in an array
+  //Create a null variable
+  let rest = null;
+  //Iterate through array backwards
+  for (let i = array.length; array.length >= 0; i--){
+    //Reassign rest to an object, with a value key with the value of the array index, and a rest key that is the value of the rest variable
+    rest = { value: array[i], rest: rest };
+  }
+  //Return rest variable
+  return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(list, output=[]) {//Function takes in a object, and also has a default that is an array
+  //base
+  //Determine if the key value of rest in the object is null
+  if (list.rest === null){
+    //Push the final value property into output
+    output.push(list.value)
+    //Return the output default
+    return output;
+  }
+  //recursion
+    //Add current value property to output
+  output.push(list.value);
+  //Return the function with the rest property as its parameter and the output default
+  return listToArray(list.rest, output)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
