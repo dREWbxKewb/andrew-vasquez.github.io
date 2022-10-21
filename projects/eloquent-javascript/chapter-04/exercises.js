@@ -2,8 +2,36 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(start, end, step) {//Function takes in a start and end number and a step number that determines how much we need to add to start to get closer
+  //Create an array
+  let arrayR = [];
+  //Determine if end equals start or if end is less than 0
+  if (end === start || step < 0){
+    //Return arrayR;
+    return arrayR;
+  }
+  //Determine if step is equal to 1
+  if (step === 1){
+    //Increment the start number by 1
+    for (let i = start; i <= end; i++){
+      //Push i into array
+      arrayR.push(i);
+    }
+  } else if (step > 1){ //If step is greater than 1
+    //Increment the start number by step
+    for (let i = start; i <= end; i += step){
+      //Push i into array
+      arrayR.push(i);
+    }
+  } else { //If range doesnt have a step
+    //Increment the start number by 1
+    for (let i = start; i <= end; i++){
+      //Push i into array
+      arrayR.push(i);
+    }
+  }
+  //Return array
+  return arrayR;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
