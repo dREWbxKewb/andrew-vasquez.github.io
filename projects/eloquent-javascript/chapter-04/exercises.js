@@ -38,24 +38,49 @@ function range(start, end, step) {//Function takes in a start and end number and
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
-
+function sum(array, output=0) {//Function that takes in a an array
+  //Determine if the array is empty
+  if (array.length === 0){
+    return output;
+  }
+  //Increment output by the array at index
+  output += array[0]
+  //Return the function with the array sliced and output
+  return sum(array.slice(1), output);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array) {//Function takes in an array
+  //Create an array
+  let newArr = [];
+  //Iterate through the array backwards
+  for (let i = array.length - 1; i >= 0; i--){
+    //Push the index value into the new array
+    newArr.push(array[i]);
+  }
+  //Return the new array
+  return newArr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {//Function takes in an array
+  //Iterate through the array and us Math.floor to end at half the array
+  for (let i = 0; i < Math.floor(array.length / 2); i++){
+    //Create a holder variable for the indexed array value
+    let hold = array[i];
+    //Make the first index of array equal to the last index of array minus i
+    array[i] = array[array.length - 1 - i];
+    //Make array at length minus i equal the held variable
+    array[array.length - 1 - i] = hold;
+  }
+  //Return array
+  return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -98,16 +123,30 @@ function listToArray(list, output=[]) {//Function takes in a object, and also ha
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, list) {//Function takes in a value and list
+  //Return the value added to the list, and the next list in the line
+  return {value, rest: list};
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, n) {//Function takes in a list and number
+  //Base
+  //Determine if n is equal to 0
+  if (n === 0){
+    //Return the key value of list
+    return list.value;
+  }
+  //Recursion
+  //Determine if list exist
+  if (!list){
+    //Return undefined
+    return undefined;
+  }
+  //Return the function with list with its rest key value and the number subtracted by 1
+  return nth(list.rest, n - 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
