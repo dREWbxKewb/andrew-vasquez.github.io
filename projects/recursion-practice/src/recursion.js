@@ -413,7 +413,24 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj={}) {//Make the objParameter equal an object literal
+  //Base
+  //Determine if the string is empty
+  if(str.length === 0){
+    //Return obj
+    return obj;
+  }
+  //Recursion
+  //Determine if the index of string exist in object
+  if(obj[str[0]]){
+    //Increment the value of the key in obj
+    obj[str[0]]++;
+  } else { //Else if not
+    //Create the value for the key in object
+    obj[str[0]] = 1;
+  }
+  //Retunr the function with string sliced and the object
+  return letterTally(str.slice(1), obj);
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -421,7 +438,21 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, output=[]) {//Create an output that puts unique numbers in the array
+  //Base
+  //Determine if list is empty
+  if (list.length === 0){
+    //Return the output array
+    return output;
+  }
+  //Recursion
+  //Determine if the zero index is not in the output array
+  if (list[0] !== list[0 + 1]){
+    //Push the index into the output array
+    output.push(list[0]);
+  }
+  //Return the function with the list sliced and the output
+  return compress(list.slice(1), output);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -433,7 +464,15 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output=[]) {
+  //Determine if array is empty
+  if (array.length === 0){
+    return output;
+  }
+  if (array[0] !== array[0 + 1]){
+    output.push(array[0]);
+  }
+  return minimizeZeroes(array.slice(1), output);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -441,12 +480,69 @@ var minimizeZeroes = function(array) {
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
 var alternateSign = function(array) {
+  //Base
+  //Determine if array is empty
+ if (array.length === 0){
+  //Return an empty array
+  return [];
+}
+  //Create variables that host the function with the array sliced at zero and the array at last index
+  var list = alternateSign(array.slice(0, array.length - 1));
+  var length = array.length;
+  if (length % 2 === 0) {
+    if (array[length - 1] > 0) {
+      array[length - 1] = -array[length - 1];
+    }
+  } else {
+    if (array[length - 1] < 0) {
+      array[length - 1] = -array[length - 1];
+    }
+  }
+  list.push(array[length -1 ]);
+  return list;
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, output="") {
+  //base
+  //Determine if str is empty
+  if(str.length === 0){
+    //Return output string
+    return output;
+  }
+  //recursion
+  //Determine if the the string index is a number
+  if(str[0] === '0'){
+    //Change the number to equal the string name of the number and add to output
+   output += "zero"
+  } else if(str[0] === '1'){ // All the below follows the first determination and the output addition
+    output += "one"
+  } else if(str[0] === '2'){
+    output += "two"
+  } else if(str[0] === '3'){
+    output += "three"
+  } else if(str[0] === '4'){
+    output += "four"
+  } else if(str[0] === '5'){
+    output += "five"
+  } else if(str[0] === '6'){
+    output += "six"
+  } else if(str[0] === '7'){
+    output += "seven"
+  } else if(str[0] === '8'){
+    output += "eight"
+  } else if(str[0] === '9'){
+    output += "nine"
+  } else if(str[0] === '10'){
+    output += "ten"
+  } else { //If the string index is not a number
+    //Add the string index to the output
+    output += str[0];
+  }
+  //Return the function sliced with the output
+  return numToText(str.slice(1), output);
 };
 
 // *** EXTRA CREDIT ***

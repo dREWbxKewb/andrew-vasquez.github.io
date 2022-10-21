@@ -38,7 +38,7 @@ function arrayToList(array) {//Function takes in an array
   //Create a null variable
   let rest = null;
   //Iterate through array backwards
-  for (let i = array.length; array.length >= 0; i--){
+  for (let i = array.length - 1; i >= 0; i--){
     //Reassign rest to an object, with a value key with the value of the array index, and a rest key that is the value of the rest variable
     rest = { value: array[i], rest: rest };
   }
@@ -86,8 +86,29 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+  //Determine if x and y are both not object
+  if (typeof x !== "object" && typeof y !== "object"){
+    return x === y;
+  }
+  //Determine if EITHER x or y is not an object
+  if (typeof x !== "object" || typeof y !== "object"){
+    return false;
+  }
+  //Create array of each object's keys
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
+  //Determine if xKeys and yKeys don't have the same length
+  if (xKeys.length !== yKeys.length){
+    return false;
+  }
+  //Iterate through xKeys to see if properties match each other at the index
+  for (let i = 0; i < xKeys.length; i++){
+    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+      return false;
+    }
+  }
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
