@@ -83,5 +83,40 @@ n += 1;
 var arr = [1, 2, 3, 4];
 //This example shows us a complex datatype
 //Complex datatypes are mutible, meaning anything you do to them will follow to the end of your code
-//There are methods in JS that allow us to add, subtract, put in middle, sort, and change the data structure of complex datatypes
+//There are methods in JS that allow us to add, subtract, put in middle, sort, and change the data structure of complex data
+arr.pop(), arr.push(5); //This is to delete the last index in the array and to add something to the end of the array
+arr.shift(), arr.unshift(0); //This is to delete the first index and to add something to the first index in the array
+arr.concat(arr); //This combines 2 arrays into 1, NOTE: strings can also be combined by this method into an array
+arr.splice(1, 0, 3) //This adds an element to the middle of an array. NOTE: You can use splice to remove something from the index you choose
+arr.slice(1); //This returns the array starting at the index
+arr[0] = 1; //This is a way to add a value to an index
+arr.length = 5; //This would add to the end of the array
+//Objects don't have methods, however you can add and subtract things from an array by creating keys
+obj.key = 0 or obj[key] = 0; //This would add a key with a value to an object
+delete obj.key; //This would delete said key from the object, or more so would make the value of the key undefined which is equivalent to deleted
+
+// 12 // Differences of Simple and Complex Data in Functions
+//Functions can take in both simple and complex data. In some cases a function is kinda like a complex datatype in itself
+function example(array){ //Functions can take in any parameter, this can include simple and complex data, in the case of this function we are passing in an array, but we will show both an array and a string called array
+    let nArr = []
+    let nString = ""
+    // In the case of an array a function will give us a new array
+    // In the case of a string value, it will give us an array of letters
+    if (Array.isArray(array)){ //Determining if it is an array
+        for (let i = 0; i < array.length; i++){
+            nArr.push(array[i]); //In the case of an array, we are gonna push into a new array. Because we are returning a new array, the original array still exist
+            //We will just get a new array
+            return nArr;
+        }
+    } else {
+        for (let x = 0; i < array.length; x++){
+            let newA = nString += array[i]; //In the case of a string, we will put the numbers in an array, into a string, but we will make a new variable equal this happening.
+            //Because we are adding things to this string, we can get the value of it at both nString, and newA because they would be both the same
+            return newA;
+        }
+    }
+
+}
+//Simple Data in a structure will copy whatever the original value is, but will never change that original value unless directly manipulated
+//Complex Data in a structure will mutate through the function, meaning that after the function, our datatype will be completely different if logged
 

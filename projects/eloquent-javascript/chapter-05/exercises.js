@@ -2,7 +2,12 @@
 // flatten /////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function flatten() {
+function flatten(array) {//Function takes in an array of arrays
+  //Return the reduce method that takes in a function that takes in an array and the current index in the array of arrays
+  return array.reduce(function(arr, curr){
+    //Return the seed array concated with the current array at the index of array
+    return arr.concat(curr);
+  }, []);
 
 }
 
@@ -10,7 +15,8 @@ function flatten() {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop() {
+function loop(n, test, update, body) { //Function takes in a number
+  //
 
 }
 
@@ -26,8 +32,20 @@ function every() {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) { //Function takes in a string
+  //Create two arrays to store rtl values and ltr values
+  let ltr = [];
+  let rtl = [];
+  //Iterate through the string
+  for (let i = 0; i < string.length; i++){
+    let code = string.charCodeAt(i);
+    let script = characterScript(code); //{ script } | null
 
+    if(script !== null){
+      script.direction === "ltr" ? ltr.push(script) : rtl.push(script);
+    }
+  }
+  return ltr.length > rtl.length ? 'ltr' : 'rtl';
 }
 
 // /////////////////////////////////////////////////////////////////////////////
