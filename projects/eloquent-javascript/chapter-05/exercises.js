@@ -15,17 +15,29 @@ function flatten(array) {//Function takes in an array of arrays
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop(n, test, update, body) { //Function takes in a number
-  //
-
+function loop(start, test, update, body) { //Function takes in a start value, test function, update function, and a body function
+  //Iterate the start value, passing in the test function as the stop condition, and updating the value with the update function
+  for (let i = start; test(i); i = update(i)){
+    //Invoke the body function on the new value
+    body(i);
+  }
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(array, test) {
+  //Iterate through the array
+  for (let i = 0; i < array.length; i++){
+    //Determine if test array[i] is not true
+    if (!test(array[i])){
+      //Return false
+      return false;
+    }
+  }
+  //Return true
+  return true;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
