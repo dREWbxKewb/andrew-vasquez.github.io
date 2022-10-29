@@ -70,5 +70,5 @@ for (let key in person){ //This loop will assign key to the properties in person
     console.log(key); //This log will print all the keys to the console
     console.log(person[key]); //This log will print the key values to the console
 }
-//Looping an object is pretty simple, however won't produce the same results if you try to for loop an object, in fact u can only us a for in for an object, and a for loop for an array
-//Even more complex is that you can chain multiple loop to get different result if the value u are looping for is a complex datatype
+//Looping an object is pretty simple, however won't produce the same results if you try to for loop an object, in fact you can only us a for in for an object, and a for loop for an array
+//Even more complex is that you can chain multiple loop to get different result if the value you are looping for is a complex datatype
